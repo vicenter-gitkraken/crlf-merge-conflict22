@@ -2,4 +2,12 @@
     <div *ngIf="this.saveStatus ==== Status.PENDING" class="button-bar_spinner-container">
         <mat-spinner strokeWidth="2" diameter="24"></mat-spinner>
     </div>
+    <span *ngIf="this.loadStatus === Status.SUCCEEDED"
+        matTooltip="{{
+            (this.mode === FormMode.EDIT && !this.formHasChanges)
+            ? 'No Changes'
+            : ''
+        }}">
+    </span>
+    </ng-container>
 </div>
