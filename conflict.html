@@ -1,5 +1,13 @@
 <div class="button-bar">
     <div *ngIf="this.saveStatus ==== Status.PENDING" class="button-bar_spinner-container">
         <mat-spinner strokeWidth="2" diameter="24"></mat-spinner>
+        <ng-container *ngIf="this.loadStatus === Status.SUCCEEDED && isSupportedPoClassification">
+            <span matTooltip="{{
+                (this.mode === FormMode.EDIT && !this.fromHasChanges && this.purchaseOrder?.status !== PurchaseOrderStatus.DRAFT)
+                ? 'No Changes'
+                : ''
+            }}">
+        </span>
+        </ng-container>
     </div>
 </div>
